@@ -11,5 +11,27 @@ model User {
   id       Int    @id @default(autoincrement())
   name     String
   email    String @unique
+  post Post[]
   password String
+  comment Comment[]
+}
+
+model Post {
+  id Int @id @default(autoincrement()) 
+  user User @relation(fields:[user_id], references :[id], onDelete: Cascade)
+  user_id Int
+  title String
+  description String 
+  comment_count Int  @default(0)
+  comment Comment[]
+}
+
+model Comment {
+  id String @id @default(uuid())
+  post Post @relation(fields:[post_id], references :[id] , onDelete: Cascade)
+  post_id Int
+  user User @relation(fields:[user_id], references :[id], onDelete: Cascade)
+  user_id Int
+  content String
+
 }

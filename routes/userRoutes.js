@@ -3,11 +3,11 @@ import { createUser, deleteUser, getAllUsers, getUserByid, updateUser } from "..
 
 const userRoutes = Router();
 
-userRoutes.post('/createUser', createUser) ; 
+userRoutes.post('/create', createUser) ; 
 userRoutes.get('/:id', getUserByid); 
-userRoutes.post('/update' , updateUser) ; 
+userRoutes.post('/update/:id' , updateUser) ; 
 userRoutes.get('/getallusers', getAllUsers)
-userRoutes.delete('/delete', deleteUser)
+userRoutes.delete('/delete/:id', deleteUser)
 
 export default userRoutes ;
 
