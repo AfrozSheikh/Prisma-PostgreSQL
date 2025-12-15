@@ -1,1 +1,5 @@
 I have used neon.tech for online postgresql.
+
+npx prisma migrate dev --name create_user_Schema
+
+npx prisma generate
