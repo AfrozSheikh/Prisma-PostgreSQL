@@ -17,7 +17,12 @@ export const createPost= async(req,res)=>{
 
 }
 export const getAllPosts= async(req,res)=>{ 
-    const posts = await prisma.post.findMany();
+    const posts = await prisma.post.findMany({
+        include : {
+            comment :true ,
+            user : true
+        }
+    });
     res.json({
         message: "All posts retrieved successfully",
         posts: posts
